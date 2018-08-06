@@ -8,33 +8,26 @@
     padding: 0;
 }
 
-
-/**:before *:after {
+/*
+*:before *:after {
     box-sizing: inherit;
 }*/
 
 html {
-    height: auto;
-    min-height: 100%;
-    background-size: cover;
-    background: url(../images/schematic.jpg) no-repeat center center;
-    background-color: #ffffff;
-    margin: auto;
-    padding: 0;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
+    /* box-sizing: border-box;*/
+    height: 100%;
 
 }
 
 
 body {
 
-    margin: auto auto;
-    padding: auto;
-    height: auto;
-    min-height: 100%;
-    display: block;
+    background: url(../images/schematic.jpg) no-repeat center center;
+    background-color: #ffffff;	
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
     
 }
 
@@ -99,8 +92,6 @@ div .nav-dropdown {
 
 div.nav-dropdown {
     visibility: hidden;
-    /*display: none/block;
- doesn't allocate space, but need workaround for when it's block */
 }
 
 .main-menu {
@@ -137,16 +128,3 @@ div.nav-dropdown {
 }
 
 
-.main-content {
-    position: relative; 
-    margin: auto;
-    padding: 10px;
-/*    box-sizing: border-box; */
-    width: 75%;
-    height: 75%;
-    min-height: 500;
-    background-color: #FFFFFF;
-    border: 5px solid #000000;
-    opacity: 0.75;
-    
-}
