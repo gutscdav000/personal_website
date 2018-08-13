@@ -112,8 +112,11 @@ div .nav-dropdown {
 
 div.nav-dropdown {
     visibility: hidden;
-    /*display: none/block;
- doesn't allocate space, but need workaround for when it's block */
+
+/* display: none/block;
+ doesn't allocate space, but need workaround for when it's block 
+ not sure this should be use. kind of looks bad.
+*/
 }
 
 .main-menu {
@@ -152,9 +155,9 @@ div.nav-dropdown {
 
 .main-content {
     position: relative; 
-    margin: 1%;
+    margin: 0 auto;
     padding: 10px;
-
+    bottom: 10px;
 
     
 /*    box-sizing: border-box; */
