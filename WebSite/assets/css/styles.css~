@@ -17,7 +17,24 @@ html {
     height: auto;
     min-height: 100%;
     background-size: cover;
-    background: url(../images/schematic.jpg) no-repeat center center;
+    /*    background: url(../images/schematic.jpg) no-repeat center center;*/
+   /* background: url(../images/schematic.jpg) 100%;
+
+    
+    background-color: #ffffff;
+    margin: auto;
+    padding: 0;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+*/
+}
+
+
+body {
+
+    /* moved down from .html */
+    background: url(../images/schematic.jpg) 100%;
     background-color: #ffffff;
     margin: auto;
     padding: 0;
@@ -25,10 +42,6 @@ html {
     -moz-background-size: cover;
     -o-background-size: cover;
 
-}
-
-
-body {
 
     margin: auto auto;
     padding: auto;
@@ -139,12 +152,16 @@ div.nav-dropdown {
 
 .main-content {
     position: relative; 
-    margin: auto;
+    margin: 1%;
     padding: 10px;
+
+    transform: perspective(1px) translateY(-50%);
+
+    
 /*    box-sizing: border-box; */
     width: 75%;
-    height: 75%;
-    min-height: 500;
+    /*height probably should be auto*/
+    min-height: 75%;
     background-color: #FFFFFF;
     border: 5px solid #000000;
     opacity: 0.75;
