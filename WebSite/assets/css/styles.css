@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Oxygen+Mono');
-/* 
-	Credit: Bennett Dierckman for the web site structure 
+/*
+	Credit: Bennett Dierckman for the web site structure
 */
 
 * {
@@ -20,7 +20,7 @@ html {
     /*    background: url(../images/schematic.jpg) no-repeat center center;*/
    /* background: url(../images/schematic.jpg) 100%;
 
-    
+
     background-color: #ffffff;
     margin: auto;
     padding: 0;
@@ -48,7 +48,7 @@ body {
     height: auto;
     min-height: 100%;
     display: block;
-    
+
 }
 
 
@@ -84,19 +84,19 @@ body {
 
 /* Rotate last bar */
 .change .bar3 {
-    
+
     -webkit-transform: rotate(45deg) translate(-8px, -8px);
     transform: rotate(45deg) translate(-8px, -8px);
 }
 
 
 .navbar {
-   
+
     position: relative;
     left: 0;
     top: 0;
     border-bottom: double 5px #000000;
-    padding:0.1em 0.5em 0.5em 2.5em; 
+    padding:0.1em 0.5em 0.5em 2.5em;
     color: #eaecc5;
     background-color: #ffffff;
     display: flex;
@@ -107,14 +107,15 @@ body {
 
 div .nav-dropdown {
     padding: 50px;
-    
+
 }
 
 div.nav-dropdown {
-    visibility: hidden;
+  /*  visibility: hidden;*/
+  display: none;
 
 /* display: none/block;
- doesn't allocate space, but need workaround for when it's block 
+ doesn't allocate space, but need workaround for when it's block
  not sure this should be use. kind of looks bad.
 */
 }
@@ -149,17 +150,17 @@ div.nav-dropdown {
 
 .main-menu>li>a {
     color: #00ff00;
-    
+
 }
 
 
 .main-content {
-    position: relative; 
+    position: relative;
     margin: 10px auto;
     padding: 10px;
     bottom: 10px;
 
-    
+
 /*    box-sizing: border-box; */
     width: 75%;
     /*height probably should be auto*/
@@ -167,5 +168,5 @@ div.nav-dropdown {
     background-color: #FFFFFF;
     border: 5px solid #000000;
     opacity: 0.75;
-    
+
 }

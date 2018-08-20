@@ -8,7 +8,7 @@ function rotateHamburger(x) {
 
 /* visibility: hidden/visible
    purpose: allocates space on page irrespective of value */
-
+/*
 function toggleDropdown() {
     var dropdown = document.getElementsByClassName("nav-dropdown")[0];
     console.log(dropdown);
@@ -22,11 +22,11 @@ function toggleDropdown() {
 	console.log(dropdown.style.visibility);
 	//dropdown.style.visibility.replace("hidden", "visible");
     }
-}
+    }*/
 
 /* display: none/block function
    purpose: doesn't allcoate space on html when hidden*/
-/*
+
 function toggleDropdown() {
     var dropdown = document.getElementsByClassName("nav-dropdown")[0];
     console.log(dropdown);
@@ -41,4 +41,3 @@ function toggleDropdown() {
 	//dropdown.style.visibility.replace("hidden", "visible");
     }
 }
-*/
