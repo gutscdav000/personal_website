@@ -713,11 +713,7 @@ email {
 	padding-right: 10px;
 	padding-bottom: 10px;
 	overflow: hidden;
-	/* border-bottom: 4px solid #F04A00; */
-	/* display: flex;
-	flex-direction: column;
-	flex-wrap: wrap;
-	align-content: stretch; */
+
 }
 
 .form-item {
@@ -770,60 +766,149 @@ textarea {
 		padding: 15%;
 		background-color: rgba(35, 35, 35, .5);
 		border-bottom: 4px solid #F04A00;
+
 	}
 
+
+
 	.main-button {
-		margin: 1px;
-		width: 100%;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+
+	margin-bottom: 20px;
+	padding: 5px 15px;
+	font-size: 16px;
+	text-align: center;
+	cursor: pointer;
+	outline: none;
+	color: #fff;
+	background-color: #999;
+	border: none;
+	border-radius: 5px;
+	box-shadow: 0 5px #F04A00;
 	}
+
+	.main-button span:after {
+	  content: '»';
+	  position: absolute;
+	  opacity: 0;
+	  top: 0;
+	  right: -20px;
+	  transition: 0.5s;
+		margin-right: 40px;
+
+	}
+
+	.main-button:hover span {
+	  padding-right: 25px;
+	}
+
+	.main-button:hover span:after {
+	  opacity: 1;
+	  right: 0;
+	}
+
+.main-button:hover {
+	background-color: #3e8e41;
+}
+
+.main-button:active {
+	background-color: #3e8e41;
+	box-shadow: 0 5px #666;
+	transform: translateY(4px);
+}
+
+/*   ----- */
 
 }
 
 
 /* Small devices (landscape phones, 576px and up) */
-@media (max-width: 575px) {
+@media (min-width: 311px) and (max-width: 575px) {
 
-	body{
-			background: url(../images/schematic.jpg) 100%;
-			-webkit-background-size: cover;
-			-moz-background-size: cover;
-			-o-background-size: cover;
-			background-size: cover;
-			color: white;
-			margin-top: 58px;
-			padding-bottom: auto;
-			padding-top: auto;
-			font-family: 'Lato', sans-serif;
-			color: #F2F2F2;
+		body {
+				background: url(../images/schematic.jpg) 100%;
+				-webkit-background-size: cover;
+				-moz-background-size: cover;
+				-o-background-size: cover;
+				background-size: cover;
+				color: white;
+				margin-top: 58px;
+				padding-bottom: auto;
+				padding-top: auto;
+				font-family: 'Lato', sans-serif;
+				color: #F2F2F2;
+			}
+
+			.main-container {
+				background-color: rgba(35, 35, 35, .5);
+				border-bottom: 4px solid #F04A00;
+				display:flex;
+				flex-direction: column;
+				flex-wrap: wrap;
+				padding: 10%;
+			}
+
+			.main-button {
+				margin: 1px;
+				width: 100%;
+
+				cursor: pointer;
+				display: inline-block;
+				position: relative;
+				transition: 0.5s;
+				margin-bottom: 20px;
+				padding: 5px 15px;
+				font-size: 95%;
+				text-align: center;
+				outline: none;
+				color: #fff;
+				background-color: #999;
+				border: none;
+				border-radius: 5px;
+				box-shadow: 0 5px #F04A00;
+			}
+
+			.main-button span {
+			cursor: pointer;
+			display: inline-block;
+			position: relative;
+			transition: 0.5s;
 		}
 
-		/* .main-container {
-			display:flex;
-			flex-direction: column;
-		 	flex-wrap: wrap;
-			padding: 8%;
+		.main-button span:after {
+			content: '»';
+			position: absolute;
+			opacity: 0;
+			top: 0;
+			right: -20px;
+			transition: 0.5s;
 		}
 
-		.main-button {
- 			margin: 1px;
-			width: 100%;
-		} */
-
-		.main-container {
-			background-color: rgba(35, 35, 35, .5);
-			border-bottom: 4px solid #F04A00;
-			display:flex;
-			flex-direction: column;
-			flex-wrap: wrap;
-			padding: 10%;
+		.main-button:hover span {
+			padding-right: 25px;
 		}
 
-		.main-button {
-			margin: 1px;
-			width: 100%;
+		.main-button:hover span:after {
+			opacity: 1;
+			right: 0;
+		}
+
+		.main-button:hover {
+			background-color: #3e8e41;
+		}
+
+		.main-button:active {
+			background-color: #3e8e41;
+			box-shadow: 0 5px #666;
+			transform: translateY(4px);
 		}
 
 }
+
+
 @media (min-width: 576px) {
 
 	body{
@@ -855,7 +940,29 @@ textarea {
 			margin: 2.25%;
 			height: 100px;
 			width: 45%;
+
+			padding: 15px 25px;
+  		font-size: 24px;
+  		text-align: center;
+  		cursor: pointer;
+  		outline: none;
+  		color: #fff;
+  		background-color: #999;
+  		border: none;
+  		border-radius: 15px;
+  		box-shadow: 0 9px #F04A00;
 		}
+
+		.main-button:hover {
+			background-color: #3e8e41;
+		}
+
+		.main-button:active {
+  		background-color: #3e8e41;
+  		box-shadow: 0 5px #666;
+  		transform: translateY(4px);
+		}
+
 
 	.mission h4{
 		font-size: 22px;
