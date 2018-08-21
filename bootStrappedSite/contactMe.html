@@ -30,7 +30,7 @@
 				 			 <a class="navbar-brand" href="index.html"><img src="assets/images/alexanderSonsLogo.png" alt="Alexander &amp; Sons Logo"></a>
 							<div class="collapse navbar-collapse" id="navbarSupportedContent">
 								<ul class="navbar-nav mr-auto">
-								    <li class="nav-item active">
+								    <li class="nav-item">
 										<a class="nav-link" href="index.html">Home</a> <!-- Dont forget to do this shit for the blind people -->
 									</li>
 									<li class="nav-item">
@@ -42,7 +42,7 @@
 									 <li class="nav-item">
 										<a class="nav-link" href="articles.html">Articles</a>
 									 </li>
-									 <li class="nav-item">  <!--use 'active' then its the page they be on-->
+									 <li class="nav-item active">  <!--use 'active' then its the page they be on-->
 										<a class="nav-link" href="contactMe.html">Contact Me</a>
 									 </li>
 								</ul>
@@ -62,17 +62,44 @@
 
 
 			<main>
+					<div class="contact-form-container">
+									<form action="insertArtist.php" method="post" id="userForm">
+										<div class="form-item">
+											<div class="row-item">
+												First Name:
+											</div>
+											<div class="row-item">
+												<input type="text" name="fname">
+											</div>
+										</div>
 
-				<div class="main-container">
+										<div class="form-item">
+											<div class="row-item">
+												Last Name:
+											</div>
+											<div class="row-item">
+												<input type="text" name="lname">
+											</div>
+										</div>
 
-						<button class="main-button"> About </button>
-						<button class="main-button"> Projects </button>
-						<button class="main-button"> Articles </button>
-						<button class="main-button"> Contact Me </button>
+										<div class="form-item">
+											<div class="row-item">
+												Email:
+											</div>
+											<div class="row-item">
+												<input type="text" name="email">
+											</div>
+										</div>
 
-				</div>
+										<!-- <div> -->
+											<textarea name="comment" form="userForm"> Enter question, inquiry, or suggestion here. . .</textarea>
+										<!-- </div> -->
+									<div class="form-item" id="submit">
+										<input type="submit" value="Contact">
+									</div>
 
-
+									</form>
+					</div>
 			</main>
 
 
