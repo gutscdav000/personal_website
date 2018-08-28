@@ -62,7 +62,7 @@ footer{
 	border-color: #F04A00;
 }
 
-/* === BEGIN NAVIGATION BAR SHIT ===  */
+/* === BEGIN NAVIGATION BAR  ===  */
 .navbar{
 	font-family: 'Lato', sans-serif;
 	font-size: 20px;
@@ -89,9 +89,9 @@ footer{
 }
 
 
-/* === END NAVIGATION BAR SHIT === */
+/* === END NAVIGATION BAR  === */
 
-/* === BEGIN JUMBOTRON SHIT === */
+/* === BEGIN JUMBOTRON  === */
 .jumbotron {
  background: url(../images/microcontroller_background.jpg) 100%;
 	-webkit-background-size: cover;
@@ -129,8 +129,8 @@ footer{
 	display: inline-block;
 }
 
-/* === END JUMBOTRON SHIT === */
-/* === BEGIN TYPOGRAPHY SHIT==*/
+/* === END JUMBOTRON  === */
+/* === BEGIN TYPOGRAPHY ==*/
 .h5Chunk h5{
 	text-align: center;
 	padding-top: 4px;
@@ -204,6 +204,44 @@ footer h4{
 
 .aboutSite li {
 	font-size: 12px;
+}
+
+.project-container {
+	display: flex;
+	flex-direction: row;
+	border-bottom: 1px solid #F04A00;
+	color: #f2f2f2;
+}
+
+.project-date {
+	min-width: 15%;
+	margin: 2%;
+
+}
+
+/* .project-header {
+	display: flex;
+	flex-direction: row;
+
+} */
+
+#project-header {
+	width: 100%;
+	margin: 0 auto;
+
+	display: flex;
+	flex-direction: row;
+}
+
+
+.project-content a {
+		font-family: inherit;
+    color: inherit;
+}
+
+.project-content h6 {
+	text-align: center;
+	font-size: 22px;
 }
 
 ul{
@@ -326,6 +364,7 @@ address {
 	padding-bottom: 50px;
 	overflow: hidden;
 	border-bottom: 4px solid #F04A00;
+	color: #f2f2f2;
 }
 
 .aboutSite {
@@ -343,8 +382,8 @@ address {
 }
 
 
-/* === END TYPOGRAPHY SHIT==*/
-/* === BEGIN DIV SHIT===*/
+/* === END TYPOGRAPHY ==*/
+/* === BEGIN DIV ===*/
 .aboutRight{
 	padding-left: 0;
 }
@@ -703,7 +742,7 @@ email {
 .portfolio p{
 	font-size: 14px;
 }
-/*=== END DIV SHITE===*/
+/*=== END DIV E===*/
 
 /* contact form */
 .contact-form-container {
@@ -812,12 +851,55 @@ textarea {
 
 .main-button:hover {
 	background-color: #3e8e41;
+	/* background-color: #F04A00;
+	box-shadow: 0 5px #999; */
 }
 
 .main-button:active {
 	background-color: #3e8e41;
 	box-shadow: 0 5px #666;
 	transform: translateY(4px);
+}
+
+.project-container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+}
+
+.project-content a {
+		font-family: inherit;
+		color: inherit;
+}
+
+.project-content h6 {
+	text-align: center;
+	font-size: 18px;
+}
+
+.project-date {
+	min-width: 15%;
+	margin: 2%;
+	font-size: 16px;
+}
+
+/* #project-header {
+	width: 90%;
+	margin: 0 auto;
+
+	display: flex;
+	flex-direction: row;
+	font-size: 16px;
+} */
+
+#project-header {
+	width: 100%;
+	margin: 0 auto;
+
+	display: flex;
+	flex-direction: row;
+	font-size: 16px;
 }
 
 /*   ----- */
@@ -904,6 +986,31 @@ textarea {
 			background-color: #3e8e41;
 			box-shadow: 0 5px #666;
 			transform: translateY(4px);
+		}
+
+		.project-content a {
+				font-family: inherit;
+		    color: inherit;
+		}
+
+		.project-content h6 {
+			text-align: center;
+			font-size: 18px;
+		}
+
+		.project-date {
+			min-width: 15%;
+			margin: 2%;
+			font-size: 12px;
+		}
+
+		#project-header {
+			width: 100%;
+			margin: 0 auto;
+
+			display: flex;
+			flex-direction: row;
+			font-size: 16px;
 		}
 
 }
