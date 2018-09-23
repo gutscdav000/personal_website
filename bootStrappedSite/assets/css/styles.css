@@ -558,6 +558,16 @@ address {
 footer{
 	border-top: 4px solid #F04A00
 }
+
+.footer-img:hover {
+	position:relative;
+  width:50%;
+  height:50%;
+  /* display:block;
+  z-index:999; */
+
+}
+
 .indexWhy{
 	display: flex;
 	flex-direction: column;
