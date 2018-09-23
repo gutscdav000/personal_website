@@ -1,0 +1,2 @@
+[23-Sep-2018 09:01:03 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/weg4vcdb/davidsdevelopment.com/assets/php/contactMe.php:80) in /home4/weg4vcdb/davidsdevelopment.com/assets/php/contactMe.php on line 85
+[23-Sep-2018 09:02:23 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/weg4vcdb/davidsdevelopment.com/assets/php/contactMe.php:80) in /home4/weg4vcdb/davidsdevelopment.com/assets/php/contactMe.php on line 85
