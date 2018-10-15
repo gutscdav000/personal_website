@@ -1325,6 +1325,15 @@ textarea {
 		color: #f2f2f2;
 	}
 
+	.aboutSite {
+		background-color: rgba(35, 35, 35, .5);
+		padding-top: 3%;
+		padding-left: 15%;
+		padding-right: 15%;
+		padding-bottom: 3%;
+		overflow: hidden;
+	}
+
 	.aboutMe-img {
 		margin-right: 10px;
 		margin-bottom: 5px;
