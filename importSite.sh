@@ -20,5 +20,5 @@ cp bootStrappedSite/contactMe.html ../
 cp bootStrappedSite/projects.html ../
 
 cp -R bootStrappedSite/assets ../
-
+cp -R bootStrappedSite/2018 ../
 echo "done copying"

@@ -19,4 +19,8 @@ cp ../contactMe.html bootStrappedSite/
 cp ../projects.html bootStrappedSite/
 
 cp -R ../assets bootStrappedSite/
+cp -R ../2018 bootStrappedSite/
+
 echo "done copying"
+
+
