@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Racing+Sans+One');
 @import url('https://fonts.googleapis.com/css?family=Lato');
+/* may need, it depends*/
+@import url('https://fonts.googleapis.com/css?family=Bitter');
 
 /*
 FYI - Import statements, if any, go on the very first line
@@ -819,6 +821,42 @@ textarea {
 	}
 
 
+	/* question box styling  */
+
+	blockquote {
+		position: relative;
+		display: inline-block;
+		background: white;
+		/* padding: 40px 30px 30px 60px; */
+		padding: 3%;
+		border-radius: 10px;
+		font-family: 'Bitter', serif;
+		color: #333;
+		/* -webkit-text-stroke: 0.5px #F04A00; */
+		text-align: left;
+
+		box-shadow: 1px 1px 1px #F04A00,
+								2px 2px 1px #F04A00,
+								3px 3px 1px #F04A00;
+		transition-duration: .3s;
+
+		span.question {
+			position: relative;
+			display: block;
+			text-align: center;
+			margin-top: auto;
+			color: #999;
+
+			i {
+				position: relative;
+				background: #eee;
+				padding-left: 5px;
+				font-style: italic;
+				z-index: 5;
+			}
+		}
+
+	}
 
 	.main-button {
   cursor: pointer;
@@ -893,15 +931,6 @@ textarea {
 	margin: 2%;
 	font-size: 16px;
 }
-
-/* #project-header {
-	width: 90%;
-	margin: 0 auto;
-
-	display: flex;
-	flex-direction: row;
-	font-size: 16px;
-} */
 
 #project-header {
 	width: 100%;
@@ -1021,6 +1050,44 @@ textarea {
 			display: flex;
 			flex-direction: row;
 			font-size: 16px;
+		}
+
+
+		/* question box styling  */
+
+		blockquote {
+		  position: relative;
+		  display: inline-block;
+		  background: white;
+		  /* padding: 40px 30px 30px 60px; */
+			padding: 3%;
+		  border-radius: 10px;
+		  font-family: 'Bitter', serif;
+		  color: #333;
+			/* -webkit-text-stroke: 0.5px #F04A00; */
+		  text-align: left;
+
+		  box-shadow: 1px 1px 1px #F04A00,
+		              2px 2px 1px #F04A00,
+		              3px 3px 1px #F04A00;
+		  transition-duration: .3s;
+
+		  span.question {
+		    position: relative;
+		    display: block;
+		    text-align: center;
+		    margin-top: auto;
+		    color: #999;
+
+		    i {
+		      position: relative;
+		      background: #eee;
+		      padding-left: 5px;
+		      font-style: italic;
+		      z-index: 5;
+		    }
+			}
+
 		}
 
 }
@@ -1148,6 +1215,48 @@ textarea {
 		border-bottom: none;
 		border-radius: 0;
 	}
+
+	/* question box styling  */
+
+	blockquote {
+		position: relative;
+		display: inline-block;
+		background: white;
+		/* padding: 40px 30px 30px 60px; */
+		padding: 3%;
+		border-radius: 10px;
+		font-family: 'Bitter', serif;
+		color: #333;
+		margin-top: 2%;
+		margin-bottom: 3%;
+		/* -webkit-text-stroke: 0.5px #F04A00; */
+		text-align: left;
+
+		box-shadow: 1px 1px 1px #F04A00,
+								2px 2px 1px #F04A00,
+								3px 3px 1px #F04A00;
+		transition-duration: .3s;
+
+		span.question {
+			position: relative;
+			display: block;
+			text-align: center;
+			margin-top: auto;
+			color: #999;
+
+			i {
+				position: relative;
+				background: #eee;
+				padding-left: 5px;
+				font-style: italic;
+				z-index: 5;
+			}
+		}
+
+	}
+
+
+
 }
 
 /* Medium devices (tablets, 768px and up) */
@@ -1203,6 +1312,17 @@ textarea {
 	.mission p{
 		margin: 0 auto 20px;
 		font-size: 18px;
+	}
+
+	.aboutMe {
+		background-color: rgba(35, 35, 35, .5);
+		padding-top: 3%;
+		padding-left: 15%;
+		padding-right: 15%;
+		padding-bottom: 3%;
+		overflow: hidden;
+		border-bottom: 4px solid #F04A00;
+		color: #f2f2f2;
 	}
 
 	.aboutMe-img {

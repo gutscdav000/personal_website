@@ -37,7 +37,7 @@ if(isset($_POST['email'])) {
     $error_message .= 'The Email Address you entered does not appear to be valid.<br />';
   }
 
-    $string_exp = "/^[A-Za-z .'-]+$/"; 
+    $string_exp = "/^[A-Za-z .'-]+$/";
 
   if(!preg_match($string_exp,$first_name)) {
     $error_message .= 'The First Name you entered does not appear to be valid.<br />';
@@ -76,6 +76,8 @@ $headers = 'From: '.$email_from."\r\n".
 'Reply-To: '.$email_from."\r\n" .
 'X-Mailer: PHP/' . phpversion();
 @mail($email_to, $email_subject, $email_message, $headers);
+
+// redirection
 ?>
 
 <!-- Thank you for contacting us, your feedback is the main vehicle by which I improve this site! I will be in touch with you soon. -->
@@ -194,4 +196,3 @@ $headers = 'From: '.$email_from."\r\n".
 <?php
 }
 ?>
-
