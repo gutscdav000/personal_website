@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<title>An Interview with my IoT mentor Bryce</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Font Awesome -->
+	<script src="https://use.fontawesome.com/a686b3c76b.js"></script>
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+	<!-- Custom CSS -->
+	<link rel="stylesheet" href="../assets/css/styles.css">
+	</head>
+
+
+	<body>
+		<div class="container">
+
+
+			<!-- Navigation -->
+
+			<nav class="container navbar fixed-top navbar-toggleable-md navbar-inverse">
+						  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+							<span class="navbar-toggler-icon"></span>
+						  </button>
+				 			 <a class="navbar-brand" href="../index.html"><img src="../assets/images/logo.png" alt="David's Development"></a>
+							<div class="collapse navbar-collapse" id="navbarSupportedContent">
+								<ul class="navbar-nav mr-auto">
+								    <li class="nav-item">
+										<a class="nav-link" href="../index.html">Home</a> <!-- Dont forget to do this shit for the blind people -->
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="../about.html">About<span class="sr-only">(current)</span></a>
+									 </li>
+									 <li class="nav-item active">
+										<a class="nav-link" href="../projects.html">Projects</a>
+									 </li>
+									 <li class="nav-item">
+										<a class="nav-link" href="../articles.html">Articles</a>
+									 </li>
+									 <li class="nav-item">  <!--use 'active' then its the page they be on-->
+										<a class="nav-link" href="../contactMe.html">Contact Me</a>
+									 </li>
+								</ul>
+							</div>
+						</nav>
+
+
+
+
+			<header class="hidden-sm-down">
+				<div class="jumbotron">
+					<div id="jumbopacity">
+					  <h1 class="display-1">David's Development<br>Projects</h1>
+					</div>
+				</div>
+			</header>
+
+
+			<main>
+
+					<div class="aboutMe">
+						<h6> An Introduction to Data Structures </h6><br><br>
+
+							<!-- <img class="aboutMe-img" src="../assets/images/personal_photo.jpg" alt="Personal Photo" width="243" height="352.5"> -->
+
+						<div class="content-container">
+
+              <blockquote>
+  							<span class="question"> <strong><i>
+                  I’m happy you’ve stumbled across my data structures tutorial! If you are not proponent
+                  of fancy elitist Computer Science hoopla, or if you’re not sure why people make such a
+                  big deal about data structures please read on! If you already drink
+                  the Kool-aide on this subject feel free to proceed to the following heading.
+  							</i></strong></span>
+
+  						</blockquote>
+              <br><br>
+
+              <h3> So, Why are data structures important? </h3>
+              <br>
+              <h4> 1)	Use the right tool for the right problem: </h4>
+              <br>
+
+              <p>
+                You wouldn’t hammer a screw right? So why would you not learn to use the proper structure
+                for a problem? Array’s are awesome structures that provide a host of reason’s to use them,
+                but if you have a problem that requires many insertions and deletions, you’d be better off
+                using a linked list. Furthermore learning about datastructures, you’ll probably come
+                across some structures or algorithms you didn’t previously know of, and will add one more
+                tool to your toolbox of computing.
+              </p><br>
+
+              <h4> 2)	Effiicient Problem solving: </h4>
+              <br>
+              <p>
+              Let’s say you’re solving the canonical sorting problem. Let’s say you’re using the selection
+              sort, bubble sort, or insertion sort. These algorithms are going to produce quadratic runtime
+              (e.g. O(N^2)), while if you only knew what a heap was you could achieve a much better near
+              logarithmic runtime (e.g. O(n log(n))). The point being levering data structures often produces
+              much more efficient algorithms when used properly. Note: if these funky O() functions are confusing
+              to you, I will formally introduce them in this article.
+            </p> <br>
+
+            <h4> 3)	The job market and the dreaded technical interview:</h4>
+            <br>
+            <p>
+              Most software companies will give you technical interview questions, and the vast majority of companies
+              draw from data structures and algorithmic problems when probing candidates for their technical capacities.
+              This is a tried and true method for screening candidates because: it illustrates how candidates approach
+              a problem, they are language agnostic, and they don’t require you to understand the company’s software stack.
+            </p><br>
+
+            <h4> 4)	Knowing and understanding data structures provides you the capacity to write your own
+               when the out of the box implementation doesn’t suit the problem </h4>
+            <br>
+
+            <p>
+              Let’s say our company has chosen the programing language, “Crazy Academic Functional Lambda Language”,
+              to implement an optimized concurrent application for your company’s server architecture. Perhaps this
+              language doesn’t have a suitable hash-table implementation for your problem because it rehashes too often
+              and is running slow. Well good thing you know data structures because you can implement your own
+              hash-table that caters to your needs. I admit this last point is the least likely of the 4 to occur, but
+              it is certainly within the realm of possibility.
+            </p><br>
+
+						</div>
+				</div>
+
+        <div class="aboutSite">
+          <div class="content-container">
+
+            <p>
+            Before you get started on your way to becoming an efficient developer, there are a few concepts that you may
+            or may not have been introduced to that are integral to your understanding of the concepts that I will
+            introduce you to in the coming tutorials.
+          </p><br>
+
+          <h4>1)	Abstract Data Types (ADT’s)</h4>
+          <br>
+          <p>
+            Abstract Data Types were invented by one of our awesome women in computing (not to mention one of the first!)
+            Barbara Liskov. An Abstract datatype is:
+          </p><br>
+
+          <blockquote>
+            <span class="question"> <strong><i><q>
+              a mathematical model for data types, where a data type is defined by its behavior (semantics)
+              from the point of view of a user of the data, specifically in terms of possible values, possible
+              operations on data of this type, and the behavior of these operations.
+              <a href="https://en.wikipedia.org/wiki/Abstract_data_type">as defined by wikipedia</a>
+            </q></i></strong></span>
+          </blockquote>
+          <br>
+
+          <p>
+            So let’s unpack this a little: data is defined by behavior, values, and operations independent of
+            implementation. Think of a simple list. There are certain operations you will always want to perform
+            on lists irrespective of whether the list contains Strings, numbers, objects, or another list. You most
+            likely want to be capable of adding and removing items from the list, retrieving items, checking if the
+            list contains an item, or checking the size of the list. You know how the list should interact with data
+            irrespective of the way the structure is implemented in code, and irrespective of the data itself. A list
+            is a list am I right?
+          </p><br>
+
+          <p>
+            This is why we have ADT’s. This is why we developers can refer to a List, Stack, Queue, Map, Graph, Tree,
+            etc. and another developer will know what we are talking about. A Haskell programmer, a C programmer, and
+            a python programmer can all have a conversation about these structures without understanding the nuances of
+            the specific implementations in one language or another because they all have the same operations, and they
+            treat data the same way, irrespective of the data type. In my tutorials the data structures I will explaining
+            will be implemented starting with a java interface, an example of which you can see below where I’m introducing
+            parameterized classes.
+          </p><br>
+
+          <h4>2)	What is Parameterized programming, or a parameterized class</h4>
+          <br>
+
+          <p>
+            Parameterized programming is a technique that is used to make your code and classes more portable and reusable.
+            When parameterizing our classes we provide generic datatypes to our methods that allow us to implement our data
+            structures and algorithms without knowing which datatypes they will operate on. By doing so we don’t have to write
+            an algorithm for every type: Integer, Float, String, Object, etc. We use generics and then the programmer using
+            the data structure implements the methods for the class upon which their algorithm is operating. For instance
+            for lists you need to know if an object T is equal to another object, so the programmer would implement the
+            method T equals(T x) where T is the object that fits the desired use case of your class or algorithm. Note if
+            you are using java classes the methods have already been implemented for you, but these methods must be implemented
+            for a custom class that will be passed to a data structure.
+          </p><br>
+
+          <p>To combine these two paradigms let me introduce you to the parameterized List interface:</p><br>
+
+          <div id="codeSnippet">
+            <pre>
+              <code>
+interface List<T> {
+	void add(T x);
+	T remove(int i);
+	boolean remove(T x);
+	T get(int i);
+	boolean contains(T x);
+	int size();
+	default boolean isEmpty() {
+		return size() == 0;
+	}
+}
+          </code>
+        </pre>
+      </div>
+
+
+          <p>
+            Here we use the angular brackets to parameterize the list interface so that it may be instantiated with
+            many different types, provided they are not primitive data types (e.g. not int float etc.). When you want
+            to use primitive data types you must use the wrapper classes of these types (e.g. Integer, Float, Boolean).
+          </p><br>
+
+          <h4> 3)	What is Big-O notation and time  and space complexity </h4><br>
+
+          <p>
+            Big-O notation is a tool used to compare the efficiency of various algorithms. Big-O  notation is always
+            written with N being the input size and O(N) being the output (e.g. the time or space complexity).
+						This notation may be used to represent both the time complexity and the space complexity of an algorithm.
+            Time complexity is the time it takes the algorithm to execute with respect to the input size, while space complexity
+            is the space that must be allocated to execute the algorithm with respect to the input size. Though we can talk about
+            best case, average case, and worst case run time. For the purposes of my data structures tutorials, we will most often
+            use Big-O to denote the worst case complexity of an algorithm.
+						(Algorithm nerds please don’t disown my lack of attention to proper algorithmic analysis!)
+          </p><br>
+
+          <h4> The following are the most common big-O complexities </h4>
+          <br>
+
+          <figure class="graph text-center">
+          <img src="../assets/images/big-o.jpg" id="bigO">
+          <p>graph of big-o borrowed from <a href="http://bigocheatsheet.com">here</a></p>
+        </figure>
+
+				<br><h4> Let's take a look at a few  concrete examples </h4><br>
+
+				<div id="codeSnippet">
+					<pre>
+						<code>
+y = 2 * 5 / 5;
+x = 5 - 7 + 2;
+System.out.println(Integer.toString(x + y));
+				</code >
+			</pre>
+		</div>
+		<br>
+		<p>
+			In this code snippet we have 3 statements that will run in constant time:
+			<br>3 * O(1) -> O(1)<br>
+			Now when we are performing algorithmic analysis we drop constants Because
+			they generally have a negligable effect on the complexity of the algorithm, so this
+			would be an O(1) or constant time algorithm since we drop the 3.
+		</p><br>
+
+		<div id="codeSnippet">
+			<pre>
+				<code>
+y = 5 * 10;
+for(int i = 0; i < N; i++)
+	System.out.println(Integer.toString( i * y));
+				</code>
+			</pre>
+		</div><br>
+
+		<p>
+			Here we have a single statement followed by a for loop. Any guess on what the runtime will be?
+			<br> O(1) + O(N) -> O(N) <br>
+			This will be a linear or O(N) algorithm. Notice that the big-O of this algorithm disregards the
+			constant time statement at the beggining. When analyzing an algorithm we also disregard lower order
+			terms because they will cost disproportionately less time to execute compared to the higher order terms.
+		</p><br>
+
+		<div id="codeSnippet">
+			<pre>
+				<code>
+private static boolean retrieve(int [] array, int match, int start, int end) {
+
+	// base case: if pointers are equal or  have overtaken each other
+	if(start >= end)
+		return array[start] == match;
+
+	int middle = ((end - start) / 2) + start;
+
+	// if they match
+	if(array[middle] == match)
+		return true;
+
+	// if match is greater than middle element
+	else if(match > array[middle])
+		return retrieve(array, match, middle + 1, end);
+
+	// if match is less than middle element
+	else
+		return retrieve(array, match, start, middle);
+}
+				</code>
+			</pre>
+		</div><br>
+
+		<p>
+			The method above is the recursive helper for a binary search algorithm, which you can find
+			<a href="https://github.com/gutscdav000/fun_with_datastructures/tree/master/Tutorials/BinarySearch">here</a>.
+			As you can see each time the retrieve function is called recursively the parameters passed as start and end divide
+			the size of the array being searched by half. This provides us with a time complexity of O(log(N)).
+		</p><br>
+
+		<p>
+			The next common algorithmic efficiency is O(N * log(N)) or more commonly reffered to as O(NlogN). One of the more
+			common algorithms with this runtime efficiency is MergeSort which you may find
+			<a href="https://github.com/gutscdav000/fun_with_datastructures/blob/master/Tutorials/MergeSort/src/MergeSort.java">here</a>.
+			I'm sorry there isn't quite enough room to fit all of it in this article. In MergeSort we have 3 steps: 1) splitting the
+			array which is a constant time operation 2) calling merge sort on the 2 halves of the array recursively 3) merging the 2 sorted halves.
+			These 3 steps can be reduced via algorithmic analysis to the following: O(N) + O(Nlog(N)). The O(N) comes from merging the halves of the
+			array back together, while the NLog(N) comes from recursively breaking the list into two halves, but the final big-O time complexity of the
+			algorithm is O(NLog(N)) because we drop the lower order O(N). Additionally this algorithm has a space complexity of O(N) because a copy of
+			the list must be made in order to merge the array back together.
+		</p><br>
+
+		<div id="codeSnippet">
+			<pre>
+				<code>
+y = 5 * 10;
+for(int i = 0; i < N; i++)
+	for(int j = 0; j < N; j++)
+		System.out.println(Integer.toString(i * j * y));
+				</code>
+			</pre>
+		</div><br>
+
+          </div>
+        </div>
+</main>
+
+
+			<footer class="aboutFoot">
+				<div class="contactUs">
+					<div class="row">
+						<div class="foot1 col-6 col-sm-6 col-md-4 col-lg-4 col-xl-4 item">
+							<!-- <div>Icons made by <a href="https://www.flaticon.com/authors/bogdan-rosu" title="Bogdan Rosu">Bogdan Rosu</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div> -->
+							<a href="https://www.linkedin.com/in/davidgutsch/"><img class="footer-img" src="../assets/images/linkedin-logo-button.png" alt="Linkedin Logo"></a>
+						</div>
+						<div class="foot1 col-6 col-sm-6 col-md-4 col-lg-4 col-xl-4 item">
+							<!-- <div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div> -->
+							<a href="https://www.instagram.com/guchemane/"> <img class="footer-img" src="../assets/images/instagram-logo-button.png" alt="Instagram Logo"></a>
+						</div>
+						<div class="foot1 col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 item">
+							<!-- <div>Icons made by <a href="https://www.flaticon.com/authors/roundicons" title="Roundicons">Roundicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div> -->
+							<a href="https://github.com/gutscdav000"><img class="footer-img" src="../assets/images/github-logo-button.png" alt="Github Logo"></a>
+						</div>
+					</div>
+				</div>
+			</footer>
+		</div>
+    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script>$('.carousel').carousel()</script>
+  </body>
+</html>

@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<title>An Interview with my IoT mentor Bryce</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Font Awesome -->
+	<script src="https://use.fontawesome.com/a686b3c76b.js"></script>
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+	<!-- Custom CSS -->
+	<link rel="stylesheet" href="../assets/css/styles.css">
+	</head>
+
+
+	<body>
+		<div class="container">
+
+
+			<!-- Navigation -->
+
+			<nav class="container navbar fixed-top navbar-toggleable-md navbar-inverse">
+						  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+							<span class="navbar-toggler-icon"></span>
+						  </button>
+				 			 <a class="navbar-brand" href="../index.html"><img src="../assets/images/logo.png" alt="David's Development"></a>
+							<div class="collapse navbar-collapse" id="navbarSupportedContent">
+								<ul class="navbar-nav mr-auto">
+								    <li class="nav-item">
+										<a class="nav-link" href="../index.html">Home</a> <!-- Dont forget to do this shit for the blind people -->
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="../about.html">About<span class="sr-only">(current)</span></a>
+									 </li>
+									 <li class="nav-item active">
+										<a class="nav-link" href="../projects.html">Projects</a>
+									 </li>
+									 <li class="nav-item">
+										<a class="nav-link" href="../articles.html">Articles</a>
+									 </li>
+									 <li class="nav-item">  <!--use 'active' then its the page they be on-->
+										<a class="nav-link" href="../contactMe.html">Contact Me</a>
+									 </li>
+								</ul>
+							</div>
+						</nav>
+
+
+
+
+			<header class="hidden-sm-down">
+				<div class="jumbotron">
+					<div id="jumbopacity">
+					  <h1 class="display-1">David's Development<br>Projects</h1>
+					</div>
+				</div>
+			</header>
+
+
+			<main>
+
+					<div class="aboutMe">
+						<h6> Doubly Linked Lists </h6><br><br>
+
+							<!-- <img class="aboutMe-img" src="../assets/images/personal_photo.jpg" alt="Personal Photo" width="243" height="352.5"> -->
+
+						<div class="content-container">
+							<p>
+								I am happy that my introduction to data structures didn’t scare you away! The first structure that I will be covering is the Doubly Linked
+								 List which is one of the most used and simplest data structures that implements the list abstract data type.
+							</p><br>
+
+            	<h4>What is a doubly Linked list?</h4>
+
+							<p>
+								I introduced the List interface when explaining type parameterization in the intro (e.g. the <T> generic type in the interface definition).
+									 As a recap, this is merely an object-oriented syntax that allows us to instantiate an object of any class implementing this interface with
+									 any type we choose, thus improving code reusability. If this isn’t making sense I have a more detailed description
+									 <a href="data-structures-intro.html">HERE</a>.
+							</p><br>
+
+							<div id="codeSnippet">
+		            <pre>
+		              <code>
+interface List<T> {
+  void add(T x);
+  T remove(int i);
+  boolean remove(T x);
+  T get(int i);
+  boolean contains(T x);
+  int size();
+  default boolean isEmpty() {
+  	return size() == 0;
+  }
+}
+		          </code>
+		        </pre>
+		      </div>
+
+					<p>
+						A doubly linked list is a structure or class that implements all of the methods from the list interface. We call it a doubly linked list
+						because we may traverse the list in both forward and reverse. We do this using a Node inner class. This Node inner class contains 3 member
+						variables: a piece of data, and a pointer to two other Nodes, one being the next node in the list and the other being the previous node.
+					</p><br>
+
+					<div id="codeSnippet">
+						<pre>
+							<code>
+class Node {
+	T data;
+  Node next, prev;
+
+  Node(T data) {
+      this(data, null, null);
+  }
+
+  Node(T data, Node prev, Node next) {
+      this.data = data;
+      this.prev = prev;
+      this.next = next;
+  }
+}
+							</code>
+						</pre>
+					</div>
+
+					<p>
+						A simple conceptualization of the doubly linked list is to think of it as a chain. When the list is empty we have a head Link or Node.
+						Since the list is empty the head node doesn’t contain any data, and it doesn’t have any other Links/Nodes to point to. As we add Links/Nodes
+						to the list we link them to both the next chain link as well as the head link forming a circular chain.
+					</p><br>
+
+					<p>
+						There are two key features to notice about this implementation of the doubly linked list. 1) This is a circularly linked list, meaning that the end
+						of the list is linked to the front of the list. 2) The head node will never contain any data, it will always be null. We add information to the
+						doubly linked list by adding nodes to the structure. The head node always contains null for data because this is how we recognize the head node.
+					</p><br>
+
+				<h4>What are it’s operations?</h4>
+
+					<p>
+						As I mentioned before we are implementing all of the methods from the List ADT. Some of these methods are pretty self-explanatory such as the size()
+					  and isEmpty() methods. There are some other methods that aren’t trivial, but do not need to be described in great detail. get(int i) and
+						contains(T x) fall into this category.
+					</p><br>
+
+					<p>
+						For the get method if index provided is within the bounds of the list size (e.g. i >= 0 and I < size()) the method follows the next Node pointers
+						to the Node at the i-th index. If the index i is out of bounds it throws an exception. The remove function that takes an integer index as a parameter
+						works very similar to this get method.
+					</p><br>
+
+					<div id="codeSnippet">
+						<pre>
+							<code>
+public T get(int i) {
+	if (i < 0 || i >= size())
+  	throw new IndexOutOfBoundsException();
+  Node p = head.next;
+  while (i > 0) {
+  	p = p.next;
+    i--;
+  }
+  return p.data;
+}
+
+							</code>
+						</pre>
+					</div>
+
+					<p>
+						Similarly, the contains method takes a piece of data and follows the next Node pointers through the list to see if it finds a piece of data
+						in the list that matches the input. If it finds one it returns true, if we reach the head node Node know we have made it to the end of the
+						list and we return false.
+					</p><br>
+
+					<div id="codeSnippet">
+						<pre>
+							<code>
+public boolean contains(T x) {
+	Node p = head.next;
+  while (p != head) {
+  	if (p.data.equals(x))
+    	return true;
+    p = p.next;
+  }
+  return false;
+}
+							</code>
+						</pre>
+					</div>
+
+					<p>
+						Note: For those of you who are not familiar with pointers they are simply a reference to another object. They “point” if you will, to another
+						object of that type. In our case the prev and next node pointers point to the node before the current node or the node succeeding the current node.
+					</p><br>
+
+					<p>
+						Let’s move on to methods that modify the list, because we have to continually update pointers for these operations we will go into them in more
+						detail. The last thing we want is a Nullpointer exception, or even worse in c/c++ the dreaded Segmentation Fault!
+					</p><br>
+
+					<p>
+						When adding an element to the list we must first create a new Node with the given data. Then we need to point its pointers to the appropriate nodes.
+						This new Node will point it’s next pointer to the head node since it is the new end of the list, and it will point it’s previous pointer to the
+						current last node in the list (e.g. the head.prev node). Finally, we have to update the head pointers to account for the new node.  Don’t worry
+						about the modCount variable right now it doesn't effect the form or function of this data structure. I will cover the modCount's functionality in my
+						Iterators tutorial coming soon! I know this sounds confusing so don’t be discouraged, I’ve created some diagrams for you to look at below!
+					</p><br>
+
+					<div id="codeSnippet">
+						<pre>
+							<code>
+public void add(T x) {
+	modCount++;
+  n++;
+  Node p = new Node(x, head.prev, head);
+  head.prev = head.prev.next = p;
+}
+							</code>
+						</pre>
+					</div>
+
+				<br>
+				<p>
+					This is the original state of the list. A doubly linked list with one element in it.
+				</p>
+
+				<blockquote id="center">
+						<span class="question">
+					<img class="aboutMe-img" src="../assets/images/single-item.png" alt="original list add">
+				</span>
+			</blockquote>
+			<br>
+			<p>
+				When we create the new node we point its previous pointer to the old last element in the list
+				(e.g. head.prev). We point the next pointer to the head since the node we are making is the new end
+				of the list. These pointers are shown in green(next) and red(prev), and the new node is green. the
+				yellow pointers are indicating pointers that we have updated to point to the new node.
+			</p>
+			<blockquote id="center">
+				<span class="question">
+						<img class="aboutMe-img" src="../assets/images/add-node.png" alt="list add operation">
+			</blockquote>
+			<br>
+
+			<p>
+				When removing a specific element from the list we search for a node who’s data matches the input until one of
+				 two conditions are met. Either we have made a mistake and we have null pointers, hence the pointer p == null.
+				 Or we have reached the head node again and the p.data == null. If either of these conditions are met before we
+				  find a matching item we return false and don’t remove a node because we didn’t find a node to remove. If we
+					 find a matching node then we need to update the pointers and decrease the member variable denoting the size
+					  of the list. The pointer changes will be described below with the diagram.
+			</p><br>
+
+			<div id="codeSnippet">
+				<pre>
+					<code>
+public boolean remove(T x) {
+	//assert x != null;
+
+  Node p = head.next;
+
+  // p.data == null as break condition bc we still add a block with null data
+  while(p != null && p.data != null) {
+        if(p.data.equals(x)) {
+        	//remove
+          p.next.prev = p.prev;
+          p.prev.next = p.next;
+
+          n--;
+          modCount++;
+
+          return true;
+        }
+        p = p.next;
+    }
+    return false;
+}
+					</code>
+				</pre>
+			</div>
+			<br>
+
+			<p>
+				Here is the initial state of the list before removing the node. The node to be removed is shown in red
+				and the pointers that must be updated are shown in yellow.
+			</p>
+			<blockquote id="center">
+				<span class="question">
+						<img class="aboutMe-img" src="../assets/images/list-remove1.png" alt="list remove 1">
+			</blockquote>
+			<br>
+			<p>
+				To update the pointers to remove the node we must point the next node in succession’s previous
+				pointer (p.next.prev) to the previous node (p.prev), and point the previous node’s next pointer (p.prev.next)
+				 to the next node in succession (p.next).
+			</p>
+			<blockquote id="center">
+				<span class="question">
+						<img class="aboutMe-img" src="../assets/images/list-remove2.png" alt="list remove 2">
+			</blockquote>
+
+			<p>
+				After we've updated the pointers the node we removed is no longer used in our program and is therefore
+				removed from the program by the garbage collector. Note: if you are programming in c/c++ you must not
+				forget to free this memory.
+			</p>
+			<br>
+
+			<h4> What are the advantages and disadvantages?</h4>
+			<br>
+			<p>
+				Now some of you might be wondering why you would use this structure instead of just using an array.
+				Array's are a useful tool, but depending on the algorithm you are implementing a Linked list could be
+				a better option. The biggest reason linked lists get used for a problem are due to the fact that they
+				practice efficient insertion and deletion. If you have already found the node you need to remove it is
+				a constant time operation. Another important reason to use a linked list over an array is that you have
+				to resize an array when it fills up, which is an expensive operation because you must create a new larger
+				array and copy the old array into the new one. When using a linked list there is a small constant time cost
+				for adding a new element. Don't let anyone tell you one structure is better than the other this is categorically false.
+				A testament to this is a data structure that uses both arrays and linked list that we'll cover in a later tutorial. It
+				is a HashTable that uses chaining as it's collision resolution strategy.
+			</p> <br>
+
+			<p>here is a table giving the runtime complexity of the doubly linked list operations we've covered</p>
+
+			<div id="center">
+			<table>
+				<tr>
+					<th>Operation</th>
+					<th>Array</th>
+					<th>Doubly Linked List</th>
+				</tr>
+				<tr>
+					<td>Add</td>
+					<td>O(N)</td>
+					<td>O(1)</td>
+				</tr>
+				<tr>
+					<td>Remove</td>
+					<td>O(N)</td>
+					<td>O(N)</td>
+				</tr>
+				<tr>
+					<td>Remove at Node</td>
+					<td>-</td>
+					<td>O(1)</td>
+				</tr>
+				<tr>
+					<td>get</td>
+					<td>O(1)</td>
+					<td>O(N)</td>
+				</tr>
+				<tr>
+					<td>contains</td>
+					<td>O(N)</td>
+					<td>O(N)</td>
+				</tr>
+			</table>
+		</div>
+
+				</div>
+
+
+			</main>
+
+
+			<footer class="aboutFoot">
+				<div class="contactUs">
+					<div class="row">
+						<div class="foot1 col-6 col-sm-6 col-md-4 col-lg-4 col-xl-4 item">
+							<!-- <div>Icons made by <a href="https://www.flaticon.com/authors/bogdan-rosu" title="Bogdan Rosu">Bogdan Rosu</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div> -->
+							<a href="https://www.linkedin.com/in/davidgutsch/"><img class="footer-img" src="../assets/images/linkedin-logo-button.png" alt="Linkedin Logo"></a>
+						</div>
+						<div class="foot1 col-6 col-sm-6 col-md-4 col-lg-4 col-xl-4 item">
+							<!-- <div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div> -->
+							<a href="https://www.instagram.com/guchemane/"> <img class="footer-img" src="../assets/images/instagram-logo-button.png" alt="Instagram Logo"></a>
+						</div>
+						<div class="foot1 col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 item">
+							<!-- <div>Icons made by <a href="https://www.flaticon.com/authors/roundicons" title="Roundicons">Roundicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div> -->
+							<a href="https://github.com/gutscdav000"><img class="footer-img" src="../assets/images/github-logo-button.png" alt="Github Logo"></a>
+						</div>
+					</div>
+				</div>
+			</footer>
+		</div>
+    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script>$('.carousel').carousel()</script>
+  </body>
+</html>
