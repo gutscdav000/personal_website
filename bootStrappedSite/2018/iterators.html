@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<title>An Interview with my IoT mentor Bryce</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Font Awesome -->
+	<script src="https://use.fontawesome.com/a686b3c76b.js"></script>
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+	<!-- Custom CSS -->
+	<link rel="stylesheet" href="../assets/css/styles.css">
+	</head>
+
+
+	<body>
+		<div class="container">
+
+
+			<!-- Navigation -->
+
+			<nav class="container navbar fixed-top navbar-toggleable-md navbar-inverse">
+						  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+							<span class="navbar-toggler-icon"></span>
+						  </button>
+				 			 <a class="navbar-brand" href="../index.html"><img src="../assets/images/logo.png" alt="David's Development"></a>
+							<div class="collapse navbar-collapse" id="navbarSupportedContent">
+								<ul class="navbar-nav mr-auto">
+								    <li class="nav-item">
+										<a class="nav-link" href="../index.html">Home</a> <!-- Dont forget to do this shit for the blind people -->
+									</li>
+									<li class="nav-item">
+										<a class="nav-link" href="../about.html">About<span class="sr-only">(current)</span></a>
+									 </li>
+									 <li class="nav-item active">
+										<a class="nav-link" href="../projects.html">Projects</a>
+									 </li>
+									 <li class="nav-item">
+										<a class="nav-link" href="../articles.html">Articles</a>
+									 </li>
+									 <li class="nav-item">  <!--use 'active' then its the page they be on-->
+										<a class="nav-link" href="../contactMe.html">Contact Me</a>
+									 </li>
+								</ul>
+							</div>
+						</nav>
+
+
+
+
+			<header class="hidden-sm-down">
+				<div class="jumbotron">
+					<div id="jumbopacity">
+					  <h1 class="display-1">David's Development<br>Projects</h1>
+					</div>
+				</div>
+			</header>
+
+
+			<main>
+
+					<div class="aboutMe">
+						<h6> Iterators Tutorial </h6><br><br>
+
+
+						<div class="content-container">
+
+							<p>
+								Welcome to my Iterators tutorial! It is an extension to my Doubly Linked List tutorial, but it is a concept that
+								 pertains to many more data structures than merely the Linked Lists such as: ArrayLists/Vectors, HashMaps, and
+								 Trees to name a few.
+							</p><br>
+
+							<h4> Iterators vs. Iterables </h4><br>
+
+							<p>Iterator and Iterable are two words that are very similar that are often times confused when talking
+								 about data structures, so let’s take the time to define the difference.
+							 </p>
+
+							 <blockquote>
+   							<span class="question"> <strong><i>
+                   An Iterator is an object that allows us to traverse a structure.
+   							</i></strong></span>
+   						</blockquote>
+
+							<p>
+								 An Iterable on the other hand is a type of object or structure that implements the iterator class. So any class that has
+								 an iterator is iterable. So now that we know the difference between iterators and iterables we can delve into the nuances
+								  of Iterators. Here is the interface that is used to implement every iterator.
+						 </p><br>
+
+						 <div id="codeSnippet">
+							 <pre>
+								 <code>
+Interface Iterator<T> {
+	boolean hasNext();
+	T next();
+ 	Void remove();
+}
+								 </code>
+							 </pre>
+						 </div>
+
+						 <p>
+							 The hasNext method checks to see if there is an element that succeeds the iterators position in the structure, if there is it
+							 returns true otherwise false. The next method actually moves the position of the iterator in the structure. An iterator
+							 maintains its location within a structure at all times, so when the next method is invoked it will return the next item in
+							  the structure and move the iterator past the item that is returned but before the item that follows it. The remove function
+								 removes the element that precedes the iterator. To recap the next method moves the iterator passed the element in front of
+								  the iterator pointer and returns that item, while the remove method removes the element that comes before the iterator.
+						 </p><br>
+
+						 <p>
+							 Don’t be confused by our list interface:
+						 </p>
+
+						 <div id="codeSnippet">
+							 <pre>
+								 <code>
+interface List<T> extends Iterable<T> {
+	void add(T x);
+ 	T remove(int i);
+ 	boolean remove(T x);
+ 	T get(int i);
+ 	boolean contains(T x);
+ 	int size();
+ 	default boolean isEmpty() {
+ 		return size() == 0;
+ 	}
+}
+								 </code>
+							 </pre>
+						 </div>
+
+						 <p>
+							as you can see it extends iterable<T> and not iterator. An Iterable is an interface that contains Iterator<T> as a member,
+							so by extending iterable we must implement Iterator within a class that implements the List interface, in this case it
+							was our Doubly Linked List.
+							</p><br>
+
+							<p>
+								So here is the doubly linked list implementation of our iterator:
+							</p>
+
+							<div id="codeSnippet">
+								<pre>
+									<code>
+public Iterator<T> iterator() {
+	return new Iterator<T>() {
+  	Node curr = head.next;
+    int expectedModCount = modCount;
+    boolean canRemove = false;
+
+    public boolean hasNext() {
+    	return curr != head;
+    }
+
+    public T next() {
+  		if (modCount != expectedModCount)
+    		throw new ConcurrentModificationException();
+      T ans = curr.data;
+      curr = curr.next;
+      canRemove = true;
+      return ans;
+    }
+
+    public void remove() {
+    	if (!canRemove)
+      	throw new IllegalStateException();
+    	canRemove = false;
+      removeHelper(curr.prev);
+      expectedModCount++;
+  	}
+  };
+}
+									</code>
+								</pre>
+							</div>
+
+							<p>
+								Let’s take a piece of example code to see how to use this iterator.
+							</p>
+							<div id="codeSnippet">
+								<pre>
+									<code>
+DoublyLinkedList<Integer> dll = new DoublyLinkedList<>();
+
+for(int i = 0; i < 5; i++)
+	dll.add(i);
+
+Iterator<Integer> it =  dll.iterator();
+while(it.hasNext()) {
+	Integer num = it.next();
+  if(num.equals(3))
+  	it.remove();
+  System.out.println(num);
+}
+									</code>
+								</pre>
+							</div>
+
+							<p>
+								So we start by populating the doubly linked list with 5 elements 0-4. Next we create an iterator object.
+								At this point the iterator starts pointing at the structure before the first element.
+							</p>
+
+							<blockquote id="center">
+									<span class="question">
+								<img class="aboutMe-img" src="../assets/images/iter_init.png" alt="original list add">
+							</span>
+						</blockquote>
+
+						<br>
+						<p>
+							Now we have arrived at the while loop of the above code and will continue iterating provided the iterator has
+							not returned to the head of the list again. Remember our doubly linked list is circular, connecting the end to the front.
+							So in the loop when it.next() is invoked it moves the iterator past the first element and returns the green element, printing it
+							to the console.
+						</p>
+
+						<blockquote id="center">
+								<span class="question">
+							<img class="aboutMe-img" src="../assets/images/iter1.png" alt="original list add">
+						</span>
+					</blockquote>
+
+					<br><p>
+						We will now repeat these steps for the next 2 iterations without any change other than the value of the
+						element to be printed to the console.
+					</p>
+
+					<blockquote id="center">
+							<span class="question">
+						<img class="aboutMe-img" src="../assets/images/iter2.png" alt="original list add">
+					</span>
+				</blockquote>
+
+				<br>
+
+				<blockquote id="center">
+						<span class="question">
+					<img class="aboutMe-img" src="../assets/images/iter3.png" alt="original list add">
+				</span>
+			</blockquote>
+
+			<br>
+
+			<blockquote id="center">
+					<span class="question">
+				<img class="aboutMe-img" src="../assets/images/iter4.png" alt="original list add">
+			</span>
+		</blockquote>
+
+		<p>
+			after we have return the element "3", it will match the condition where we remove an elements
+			so the iterator<Integer>.remove() method will be invoked to remove the red element.
+		</p>
+
+		<blockquote id="center">
+				<span class="question">
+			<img class="aboutMe-img" src="../assets/images/iter_remove.png" alt="original list add">
+		</span>
+	</blockquote>
+
+	<br>
+	<p>
+		After the element is removed the iterator is in the same place like so:
+	</p>
+
+	<blockquote id="center">
+			<span class="question">
+		<img class="aboutMe-img" src="../assets/images/iter_remove2.png" alt="original list add">
+	</span>
+</blockquote>
+
+<br>
+<p>
+we will iterate one more time returning the next item with the Iterator<Integer>.next() method
+</p>
+
+<blockquote id="center">
+		<span class="question">
+	<img class="aboutMe-img" src="../assets/images/iter5.png" alt="original list add">
+</span>
+</blockquote>
+
+<br>
+<p>
+	After this last iteration the iterator has made it all the way back to the head of the linked list.
+	At this point it.hasNext() will return false and the example program will terminate.
+</p><br>
+
+<h4> Concurrent Modification Exceptions </h4><br>
+
+<p>
+	The concurrent modification exception is integral to iterators. It is important that you implement them yourself when you’re
+	 implementing your own data structures, and important to understand them when using standard out of the box data structures.
+</p><br>
+
+<p>
+Our data structure maintains a member variable called modCount (e.g. modification count) which counts the number of modifications
+that have been made to the structure. When an iterator is instantiated it maintains an internal count called the expectedModCount
+ which is set equal to the data structure’s modCount upon instantiation of the iterator. This exception is thrown when the next
+  method is invoked and the expectedModCount and modCount are not equal. This occurs when the structure has been modified by
+	 means other than using the iterator. The following code execution would throw a concurrent modification exception:
+</p>
+
+<div id="codeSnippet">
+	<pre>
+		<code>
+it.next();
+dll2.remove(2);
+it.next();
+		</code>
+	</pre>
+</div>
+<br>
+<p>
+as you can see the remove method is called on the doubly linked list not the iterator, so the next time the next method is
+ invoked it will throw a concurrent modification exception. It is important to throw these exceptions because it throws the
+ exception before the structure has been corrupted.
+</p><br>
+
+<h4> Illegal State Exceptions </h4><br>
+
+<p>
+The other exception that this iterator will throw is an illegal state exception. Our Iterator<T>.remove() method may only be
+	 invoked for each time the next method is invoked. In the event that the iterator is at the start of the structure, or the
+	 remove method has already been invoked, an illegal state exception will be thrown like in the following code:
+</p>
+
+<div id="codeSnippet">
+	<pre>
+		<code>
+it.next();
+it.remove();
+it.remove();
+		</code>
+	</pre>
+</div>
+				</div>
+
+
+			</main>
+
+
+			<footer class="aboutFoot">
+				<div class="contactUs">
+					<div class="row">
+						<div class="foot1 col-6 col-sm-6 col-md-4 col-lg-4 col-xl-4 item">
+							<!-- <div>Icons made by <a href="https://www.flaticon.com/authors/bogdan-rosu" title="Bogdan Rosu">Bogdan Rosu</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div> -->
+							<a href="https://www.linkedin.com/in/davidgutsch/"><img class="footer-img" src="../assets/images/linkedin-logo-button.png" alt="Linkedin Logo"></a>
+						</div>
+						<div class="foot1 col-6 col-sm-6 col-md-4 col-lg-4 col-xl-4 item">
+							<!-- <div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div> -->
+							<a href="https://www.instagram.com/guchemane/"> <img class="footer-img" src="../assets/images/instagram-logo-button.png" alt="Instagram Logo"></a>
+						</div>
+						<div class="foot1 col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 item">
+							<!-- <div>Icons made by <a href="https://www.flaticon.com/authors/roundicons" title="Roundicons">Roundicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div> -->
+							<a href="https://github.com/gutscdav000"><img class="footer-img" src="../assets/images/github-logo-button.png" alt="Github Logo"></a>
+						</div>
+					</div>
+				</div>
+			</footer>
+		</div>
+    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script>$('.carousel').carousel()</script>
+  </body>
+</html>
