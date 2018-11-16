@@ -71,7 +71,8 @@
 						<div class="content-container">
 							<p>
 								I am happy that my introduction to data structures didn’t scare you away! The first structure that I will be covering is the Doubly Linked
-								 List which is one of the most used and simplest data structures that implements the list abstract data type.
+								 List which is one of the most used and simplest data structures that implements the list abstract data type. If you want access to the whole
+								 Doubly Linked List class and associated test suite you may find it <a href="https://github.com/gutscdav000/fun_with_datastructures/tree/master/Tutorials/DoublyLinkedList"> here </a>.
 							</p><br>
 
             	<h4>What is a doubly Linked list?</h4>
@@ -86,7 +87,7 @@
 							<div id="codeSnippet">
 		            <pre>
 		              <code>
-interface List<T> {
+interface List&ltT&gt {
   void add(T x);
   T remove(int i);
   boolean remove(T x);
@@ -103,7 +104,7 @@ interface List<T> {
 
 					<p>
 						A doubly linked list is a structure or class that implements all of the methods from the list interface. We call it a doubly linked list
-						because we may traverse the list in both forward and reverse. We do this using a Node inner class. This Node inner class contains 3 member
+						because we may traverse the list in both forward and reverse order. We do this using a Node inner class. This Node inner class contains 3 member
 						variables: a piece of data, and a pointer to two other Nodes, one being the next node in the list and the other being the previous node.
 					</p><br>
 
@@ -138,6 +139,8 @@ class Node {
 						There are two key features to notice about this implementation of the doubly linked list. 1) This is a circularly linked list, meaning that the end
 						of the list is linked to the front of the list. 2) The head node will never contain any data, it will always be null. We add information to the
 						doubly linked list by adding nodes to the structure. The head node always contains null for data because this is how we recognize the head node.
+						This is often important because we use the head node to perform quick insertions/deletions, and it is a marker to indicate that we have reached the
+						end of the list when we iterate the structure.
 					</p><br>
 
 				<h4>What are it’s operations?</h4>
@@ -149,9 +152,9 @@ class Node {
 					</p><br>
 
 					<p>
-						For the get method if index provided is within the bounds of the list size (e.g. i >= 0 and I < size()) the method follows the next Node pointers
-						to the Node at the i-th index. If the index i is out of bounds it throws an exception. The remove function that takes an integer index as a parameter
-						works very similar to this get method.
+						For the get method if the index provided is within the bounds of the list size (e.g. i >= 0 and i < size()) the method follows the next Node pointers
+						to the Node at the i-th index. If the index i is out of bounds it throws an exception. The remove function that takes an  index as a parameter
+						works similar to this get method.
 					</p><br>
 
 					<div id="codeSnippet">
@@ -174,7 +177,7 @@ public T get(int i) {
 
 					<p>
 						Similarly, the contains method takes a piece of data and follows the next Node pointers through the list to see if it finds a piece of data
-						in the list that matches the input. If it finds one it returns true, if we reach the head node Node know we have made it to the end of the
+						in the list that matches the input. If it finds one it returns true, if we reach the head node we know we have made it to the end of the
 						list and we return false.
 					</p><br>
 
@@ -200,23 +203,24 @@ public boolean contains(T x) {
 					</p><br>
 
 					<p>
-						Let’s move on to methods that modify the list, because we have to continually update pointers for these operations we will go into them in more
+						Let’s move on to methods that modify the list. Because we have to continually update pointers for these operations, we will go into them in more
 						detail. The last thing we want is a Nullpointer exception, or even worse in c/c++ the dreaded Segmentation Fault!
 					</p><br>
 
 					<p>
 						When adding an element to the list we must first create a new Node with the given data. Then we need to point its pointers to the appropriate nodes.
 						This new Node will point it’s next pointer to the head node since it is the new end of the list, and it will point it’s previous pointer to the
-						current last node in the list (e.g. the head.prev node). Finally, we have to update the head pointers to account for the new node.  Don’t worry
-						about the modCount variable right now it doesn't effect the form or function of this data structure. I will cover the modCount's functionality in my
-						Iterators tutorial coming soon! I know this sounds confusing so don’t be discouraged, I’ve created some diagrams for you to look at below!
+						current last node in the list (e.g. the head.prev node). Finally, we have to update the head's previous pointer(head.prev) and the old last element's
+						 next pointer( head.prev.next) to account for the new node.  Don’t worry about the modCount variable right now it doesn't effect the form or function of
+						  this data structure. I will cover the modCount's functionality in my <a href="iterators.html">Iterators tutorial!</a> I know this sounds confusing so don’t be
+							discouraged, I’ve created some diagrams for you to look at below!
 					</p><br>
 
 					<div id="codeSnippet">
 						<pre>
 							<code>
 public void add(T x) {
-	modCount++;
+  modCount++;
   n++;
   Node p = new Node(x, head.prev, head);
   head.prev = head.prev.next = p;
@@ -261,7 +265,7 @@ public void add(T x) {
 				<pre>
 					<code>
 public boolean remove(T x) {
-	//assert x != null;
+	assert x != null;
 
   Node p = head.next;
 
@@ -319,7 +323,7 @@ public boolean remove(T x) {
 				Array's are a useful tool, but depending on the algorithm you are implementing a Linked list could be
 				a better option. The biggest reason linked lists get used for a problem are due to the fact that they
 				practice efficient insertion and deletion. If you have already found the node you need to remove it is
-				a constant time operation. Another important reason to use a linked list over an array is that you have
+				a constant time operation to remove it. Another important reason to use a linked list over an array is that you have
 				to resize an array when it fills up, which is an expensive operation because you must create a new larger
 				array and copy the old array into the new one. When using a linked list there is a small constant time cost
 				for adding a new element. Don't let anyone tell you one structure is better than the other this is categorically false.
