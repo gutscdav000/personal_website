@@ -72,7 +72,7 @@
 
               <blockquote>
   							<span class="question"> <strong><i>
-                  I’m happy you’ve stumbled across my data structures tutorial! If you are not proponent
+                  I’m happy you’ve stumbled across my data structures tutorial! If you are not a proponent
                   of fancy elitist Computer Science hoopla, or if you’re not sure why people make such a
                   big deal about data structures please read on! If you already drink
                   the Kool-aide on this subject feel free to proceed to the following heading.
@@ -90,18 +90,18 @@
                 You wouldn’t hammer a screw right? So why would you not learn to use the proper structure
                 for a problem? Array’s are awesome structures that provide a host of reason’s to use them,
                 but if you have a problem that requires many insertions and deletions, you’d be better off
-                using a linked list. Furthermore learning about datastructures, you’ll probably come
+                using a linked list. Furthermore learning about data structures, you’ll probably come
                 across some structures or algorithms you didn’t previously know of, and will add one more
                 tool to your toolbox of computing.
               </p><br>
 
-              <h4> 2)	Effiicient Problem solving: </h4>
+              <h4> 2)	Efficient Problem solving: </h4>
               <br>
               <p>
               Let’s say you’re solving the canonical sorting problem. Let’s say you’re using the selection
               sort, bubble sort, or insertion sort. These algorithms are going to produce quadratic runtime
               (e.g. O(N^2)), while if you only knew what a heap was you could achieve a much better near
-              logarithmic runtime (e.g. O(n log(n))). The point being levering data structures often produces
+              logarithmic runtime (e.g. O(N log(N))). The point being leveraging data structures often produces
               much more efficient algorithms when used properly. Note: if these funky O() functions are confusing
               to you, I will formally introduce them in this article.
             </p> <br>
@@ -116,7 +116,7 @@
             </p><br>
 
             <h4> 4)	Knowing and understanding data structures provides you the capacity to write your own
-               when the out of the box implementation doesn’t suit the problem </h4>
+               when the out of the box implementation doesn’t suit the problem: </h4>
             <br>
 
             <p>
@@ -197,7 +197,7 @@
           <div id="codeSnippet">
             <pre>
               <code>
-interface List<T> {
+interface List&ltT&gt {
 	void add(T x);
 	T remove(int i);
 	boolean remove(T x);
@@ -255,7 +255,7 @@ System.out.println(Integer.toString(x + y));
 		<p>
 			In this code snippet we have 3 statements that will run in constant time:
 			<br>3 * O(1) -> O(1)<br>
-			Now when we are performing algorithmic analysis we drop constants Because
+			Now, when we are performing algorithmic analysis we drop constants because
 			they generally have a negligable effect on the complexity of the algorithm, so this
 			would be an O(1) or constant time algorithm since we drop the 3.
 		</p><br>
@@ -307,7 +307,7 @@ private static boolean retrieve(int [] array, int match, int start, int end) {
 
 		<p>
 			The method above is the recursive helper for a binary search algorithm, which you can find
-			<a href="https://github.com/gutscdav000/fun_with_datastructures/tree/master/Tutorials/BinarySearch">here</a>.
+			<a href="https://github.com/gutscdav000/fun_with_datastructures/blob/master/Tutorials/BinarySearch/src/BinarySearch.java">here</a>.
 			As you can see each time the retrieve function is called recursively the parameters passed as start and end divide
 			the size of the array being searched by half. This provides us with a time complexity of O(log(N)).
 		</p><br>
@@ -334,6 +334,17 @@ for(int i = 0; i < N; i++)
 				</code>
 			</pre>
 		</div><br>
+
+		<p>
+			Can you guess the run time complexity of this algorithm?
+		</p>
+		<p>
+			O(1) + O(N^2) -> O(N^2)
+		</p>
+		<p>
+			This is a quadratic algorithm. Meaning that it will take N * N time to execute the nested for loops. we disregard
+			the run time of the first O(1) statement. 
+		</p><br>
 
           </div>
         </div>
