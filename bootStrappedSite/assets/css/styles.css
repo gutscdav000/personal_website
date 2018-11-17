@@ -893,17 +893,31 @@ textarea {
 }
 
 #codeSnippet {
-background-color: #F2F2F2;
-border-radius: 5px;
--moz-border-radius: 5px;
--webkit-border-radius: 5px;
-margin: 1em 0;
+	background-color: #F2F2F2;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	margin: 1em 0;
 
-box-shadow: 2px 2px 2px #F04A00,
-						4px 4px 2px #F04A00,
-						5px 5px 2px #F04A00;
-transition-duration: .3s;
+	box-shadow: 2px 2px 2px #F04A00,
+							4px 4px 2px #F04A00,
+							5px 5px 2px #F04A00;
+	transition-duration: .3s;
+}
 
+pre {
+	margin: 0px;
+	padding: 2%;
+	white-space: pre-wrap;
+	white-space: -moz-pre-wrap;
+	white-space: -o-pre-wrap;
+	word-wrap: break-word;
+	color: #000000;
+}
+
+code {
+	font-family: Courier, 'New Courier', monospace;
+	font-size: 12px;
 }
 
 }
@@ -1064,7 +1078,21 @@ transition-duration: .3s;
 									4px 4px 2px #F04A00,
 									5px 5px 2px #F04A00;
 			transition-duration: .3s;
+		}
 
+		pre {
+			margin: 0px;
+			padding: 2%;
+			white-space: pre-wrap;
+			white-space: -moz-pre-wrap;
+			white-space: -o-pre-wrap;
+			word-wrap: break-word;
+			color: #000000;
+		}
+
+		code {
+			font-family: Courier, 'New Courier', monospace;
+			font-size: 12px;
 		}
 }
 
@@ -1244,6 +1272,21 @@ transition-duration: .3s;
 		transition-duration: .3s;
 	}
 
+	pre {
+		margin: 0px;
+		padding: 2%;
+		white-space: pre-wrap;
+		white-space: -moz-pre-wrap;
+		white-space: -o-pre-wrap;
+		word-wrap: break-word;
+		color: #000000;
+	}
+
+	code {
+		font-family: Courier, 'New Courier', monospace;
+		font-size: 12px;
+	}
+
 }
 
 /* Medium devices (tablets, 768px and up) */
@@ -1404,6 +1447,22 @@ transition-duration: .3s;
 								5px 5px 2px #F04A00;
 		transition-duration: .3s;
 	}
+
+	pre {
+		margin: 0px;
+		padding: 2%;
+		white-space: pre-wrap;
+		white-space: -moz-pre-wrap;
+		white-space: -o-pre-wrap;
+		word-wrap: break-word;
+		color: #000000;
+	}
+
+	code {
+	font-family: Courier, 'New Courier', monospace;
+	font-size: 12px;
+
+	}
 }
 
 /* Large devices (desktops, 992px and up) */
@@ -1555,6 +1614,21 @@ transition-duration: .3s;
 	transition-duration: .3s;
 }
 
+pre {
+	margin: 0px;
+	padding: 2%;
+	white-space: pre-wrap;
+	white-space: -moz-pre-wrap;
+	white-space: -o-pre-wrap;
+	word-wrap: break-word;
+	color: #000000;
+}
+
+code {
+	font-family: Courier, 'New Courier', monospace;
+	font-size: 12px;
+}
+
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
@@ -1606,4 +1680,19 @@ transition-duration: .3s;
 								5px 5px 2px #F04A00;
 		transition-duration: .3s;
   }
+
+	pre {
+		margin: 0px;
+		padding: 2%;
+		white-space: pre-wrap;
+		white-space: -moz-pre-wrap;
+		white-space: -o-pre-wrap;
+		word-wrap: break-word;
+		color: #000000;
+	}
+
+	code {
+	font-family: Courier, 'New Courier', monospace;
+	font-size: 12px;
+	}
 }
