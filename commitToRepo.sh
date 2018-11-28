@@ -9,6 +9,8 @@ rm bootStrappedSite/contactMe.html
 rm bootStrappedSite/projects.html
 
 rm -rf bootStrappedSite/assets
+rm -rf bootStrappedSite/2018
+
 echo "files removed"
 
 echo "copying files . . ."

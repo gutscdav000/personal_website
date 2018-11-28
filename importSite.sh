@@ -8,6 +8,7 @@ rm ../articles.html
 rm ../contactMe.html
 rm ../projects.html
 
+rm -rf ../2018
 rm -rf ../../assets/
 echo "files removed . . ."
 
