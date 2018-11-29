@@ -105,7 +105,7 @@ interface List&ltT&gt {
 					<p>
 						A doubly linked list is a structure or class that implements all of the methods from the list interface. We call it a doubly linked list
 						because we may traverse the list in both forward and reverse order. We do this using a Node inner class. This Node inner class contains 3 member
-						variables: a piece of data, and a pointer to two other Nodes, one being the next node in the list and the other being the previous node.
+						variables: a piece of data, and pointers to two other Nodes, one being the next node in the list and the other being the previous node.
 					</p><br>
 
 					<div id="codeSnippet">
@@ -242,7 +242,7 @@ public void add(T x) {
 			<br>
 			<p>
 				When we create the new node we point its previous pointer to the old last element in the list
-				(e.g. head.prev). We point the next pointer to the head since the node we are making is the new end
+				(e.g. head.prev which is in this cas "first element"). We point the next pointer to the head since the node we are making is the new end
 				of the list. These pointers are shown in green(next) and red(prev), and the new node is green. the
 				yellow pointers are indicating pointers that we have updated to point to the new node.
 			</p>
@@ -258,7 +258,8 @@ public void add(T x) {
 				 Or we have reached the head node again and the p.data == null. If either of these conditions are met before we
 				  find a matching item we return false and don’t remove a node because we didn’t find a node to remove. If we
 					 find a matching node then we need to update the pointers and decrease the member variable denoting the size
-					  of the list. The pointer changes will be described below with the diagram.
+					  of the list. The pointer changes will be described below with the diagram. Once again the modCount variable
+					 will be covered in the iterators tutorial.
 			</p><br>
 
 			<div id="codeSnippet">
@@ -301,8 +302,8 @@ public boolean remove(T x) {
 			<br>
 			<p>
 				To update the pointers to remove the node we must point the next node in succession’s previous
-				pointer (p.next.prev) to the previous node (p.prev), and point the previous node’s next pointer (p.prev.next)
-				 to the next node in succession (p.next).
+				pointer (p.next.prev) to the previous node (p.prev which in this case is the head), and point the previous node’s next pointer (p.prev.next)
+				 to the next node in succession (p.next in this case "last element").
 			</p>
 			<blockquote id="center">
 				<span class="question">
