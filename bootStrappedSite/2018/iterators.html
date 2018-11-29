@@ -111,7 +111,7 @@ Interface Iterator&ltT&gt {
 							 returns true otherwise false. The next method actually moves the position of the iterator in the structure. An iterator
 							 maintains its location within a structure at all times, so when the next method is invoked it will return the next item in
 							  the structure and move the iterator past the item that is returned but before the item that follows it. The remove function
-								 removes the element that precedes the iterator. To recap the next method moves the iterator passed the element in front of
+								 removes the element that precedes the iterator. To recap the next method moves the iterator past the element in front of
 								  the iterator pointer and returns that item, while the remove method removes the element that comes before the iterator.
 						 </p><br>
 
@@ -219,7 +219,7 @@ while(it.hasNext()) {
 						<p>
 							Now we have arrived at the while loop of the above code and will continue iterating provided the iterator has
 							not returned to the head of the list again. Remember our doubly linked list is circular, connecting the end to the front.
-							So in the loop when it.next() is invoked it moves the iterator past the first element and returns the green element, printing it
+							So in the loop when it.next() is invoked it moves the iterator past the first element and returns a copy of the green element, printing it
 							to the console.
 						</p>
 
@@ -322,8 +322,8 @@ it.next();
 <br>
 <p>
 As you can see the remove method is called on the doubly linked list not the iterator, so the next time the next method is
- invoked it will throw a concurrent modification exception. It is important to throw these exceptions because it throws the
- exception before the structure has been corrupted.
+ invoked it will throw a concurrent modification exception because expectedModCount and modCount are not equal. It is important to throw these exceptions because it throws the
+ exception before the structure has been corrupted, in other words it's a fail fast implementation.
 </p><br>
 
 <h4> Illegal State Exceptions </h4><br>
@@ -331,7 +331,7 @@ As you can see the remove method is called on the doubly linked list not the ite
 <p>
 The other exception that this iterator will throw is an illegal state exception. Our Iterator&ltT&gt.remove() method may only be
 	 invoked for each time the next method is invoked. In the event that the iterator is at the start of the structure, or the
-	 remove method has already been invoked, an illegal state exception will be thrown like in the following code:
+	 remove method has already been invoked for the current element, an illegal state exception will be thrown like in the following code:
 </p>
 
 <div id="codeSnippet">
