@@ -374,13 +374,17 @@ footer{
 	border-top: 4px solid #F04A00
 }
 
+
 .footer-img:hover {
 	position:relative;
   width:50%;
   height:50%;
-  /* display:block;
-  z-index:999; */
+}
 
+.footer-img-bottom:hover {
+	position: relative;
+	width: 50%;
+	height: 50%;
 }
 
 .colorCol{
@@ -625,6 +629,18 @@ code {
 	font-size: 12px;
 }
 
+.footer-img:hover {
+	position: relative;
+	width: 80%;
+	height: 80%;
+}
+
+.footer-img-bottom:hover {
+	position: relative;
+	width: 40%;
+	height: 35%;
+}
+
 }
 
 
@@ -799,6 +815,18 @@ code {
 			font-family: Courier, 'New Courier', monospace;
 			font-size: 12px;
 		}
+
+		.footer-img:hover {
+			position: relative;
+			width: 65%;
+			height: 65%;
+		}
+
+		.footer-img-bottom:hover {
+			position: relative;
+			width: 30%;
+			height: 30%;
+		}
 }
 
 
@@ -951,6 +979,12 @@ code {
 		font-size: 12px;
 	}
 
+	.footer-img-bottom:hover {
+		position: relative;
+		width: 25%;
+		height: 25%;
+	}
+
 }
 
 /* Medium devices (tablets, 768px and up) */
@@ -1065,6 +1099,18 @@ code {
 	font-size: 12px;
 
 	}
+
+	.footer-img:hover {
+		position: relative;
+		width: 50%;
+		height: 50%;
+	}
+
+	.footer-img-bottom:hover {
+		position: relative;
+		width: 50%;
+		height: 50%;
+ 	}
 }
 
 /* Large devices (desktops, 992px and up) */
@@ -1176,6 +1222,18 @@ code {
 	font-size: 12px;
 }
 
+.footer-img:hover {
+	position: relative;
+	width: 40%;
+	height: 40%;
+}
+
+.footer-img-bottom:hover {
+	position: relative;
+	width: 40%;
+	height: 40%;
+}
+
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
@@ -1229,4 +1287,16 @@ code {
 	font-family: Courier, 'New Courier', monospace;
 	font-size: 12px;
 	}
+
+	.footer-img:hover {
+		position: relative;
+		width: 32%;
+		height: 32%;
+	}
+
+	.footer-img-bottom:hover {
+		position: relative;
+		width: 32%;
+		height: 32%;
+ 	}
 }
